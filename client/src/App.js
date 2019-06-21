@@ -4,16 +4,22 @@ import Goals from './Components/Goals'
 
 const dummyData = [
   {
-    name: 'lose weight',
-    description: '50 pounds'
+    name: 'Work on Portfolio',
+    daysLeft: 10,
+    completion: 100,
+    hoursPerDay: 2
   },
   {
-    name: 'eat less',
-    description: 'carbs'
+    name: 'Connect with recruiters',
+    daysLeft: 10,
+    completion: 100,
+    hoursPerDay: 2
   },
   {
-    name: 'work out every day',
-    description: 'at the gym'
+    name: 'Work on Projects',
+    daysLeft: 10,
+    completion: 100,
+    hoursPerDay: 2
   }
 ]
 

@@ -5,7 +5,9 @@ class GoalForm extends React.Component {
   // CLASS PROPERTIES CAN NOW BE SET DIRECTLY WITHOUT A CONSTRUCTOR
   state = {
       name: '',
-      description: ''
+      description: '',
+      daysLeft: 10,
+      completion: 100
   }
 
   // ARROW FUNCTIONS DIRECTLY BIND TO THE CLASS IT IS NAMED IN
@@ -40,9 +42,9 @@ class GoalForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmission}>
-          <input type="text" value={this.state.name} placeholder="name" onChange={this.handleNameChange}></input>
-          <input type="text" value={this.state.description} placeholder="description" onChange={this.handleDescriptionChange}></input>
-          <input type="submit"/>
+          <input required={true} type="text" value={this.state.name} placeholder="name" onChange={this.handleNameChange}></input>
+          <input required={true} type="text" value={this.state.description} placeholder="description" onChange={this.handleDescriptionChange}></input>
+          <input className="btn-success" type="submit"/>
         </form>
       </div>
     )
