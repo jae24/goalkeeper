@@ -2,11 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import goalReducer from './Reducers/Goal'
 import { render } from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 
-const store = createStore(App)
+const store = createStore(combineReducers({
+  goals: goalReducer
+}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+store.subscribe(()=>{
+  console.log("STORE UPDATED", store.getState());
+});
 
 render(
   <Provider store={store}>

@@ -1,5 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { createGoal } from '../Actions/Goal';
+
+// Using the react-redux library,
+// We give this component a dispatch function within its props.
+// This function takes a goal parameter and dispatches it to createGoal in actions/goal
+const mapDispatchToProps = (dispatch, props) => ({
+  createGoal: (payload) => dispatch(createGoal(payload)),
+});
 
 class GoalForm extends React.Component {
   // CLASS PROPERTIES CAN NOW BE SET DIRECTLY WITHOUT A CONSTRUCTOR
@@ -13,6 +22,14 @@ class GoalForm extends React.Component {
   // ARROW FUNCTIONS DIRECTLY BIND TO THE CLASS IT IS NAMED IN
   handleFormSubmission = (e) => {
     e.preventDefault();
+    console.log(e.target);
+
+    const newGoal = {
+      name: this.state.name,
+      description: this.state.description
+    }
+
+    this.props.createGoal(newGoal);
 
     axios.post('http://localhost:3001/api/create', {
       ...this.state
@@ -25,7 +42,6 @@ class GoalForm extends React.Component {
   }
 
   handleNameChange = (e) => {
-    console.log(e.target.value);
     this.setState({
       name: e.target.value
     })
@@ -51,4 +67,4 @@ class GoalForm extends React.Component {
   }
 }
 
-export default GoalForm;
+export default connect(null, mapDispatchToProps)(GoalForm);
