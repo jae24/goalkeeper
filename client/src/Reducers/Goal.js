@@ -7,8 +7,8 @@ const goalReducer = (state = [], payload) => {
       ]
     case 'CREATE_GOAL':
       return [
-        ...state,
-        payload.goal
+        payload.goal,
+        ...state
       ];
       return state
     default:

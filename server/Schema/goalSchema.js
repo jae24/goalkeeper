@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 // Schema for GOAL
 const goalSchema = {
   name: String,
-  description: String
+  description: String,
+  createdOn: String
 }
 
 var Goal = mongoose.model('Goal', goalSchema);

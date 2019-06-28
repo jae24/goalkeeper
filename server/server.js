@@ -6,6 +6,8 @@ const cors = require('cors')
 const router = express.Router();
 const uri = 'mongodb+srv://bella:bellabuster@cluster0-gpkwx.mongodb.net/test?retryWrites=true&w=majority'
 const app = express();
+const moment = require('moment');
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -26,20 +28,28 @@ const Goal = require('./Schema/goalSchema');
 // API Routes
 router.post('/create', (req, res) => {
   // console.log(`name: ${req.body.name} description: ${req.body.description}`);
+
+  const timeNow = Date.now();
+
   const newGoal = new Goal({
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
+    createdOn: timeNow
   })
 
   newGoal.save((err)=>{
     console.log("New goal successfully saved")
-  })})
+  })
+
+  console.log(newGoal)
+})
+
 
 router.get('/goals', (req, res) => {
-    Goal.find({}, function(err, goals){
+    Goal.find().sort({ createdOn: -1}).exec(function(err, goals){
       console.log("FOUND");
       res.json({
-        goals: goals
+        goals
       })
     })
   })

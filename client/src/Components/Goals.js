@@ -22,7 +22,7 @@ render (){
   return (
     <div className="row jumbotron goal-post">
       {
-        this.props.goals.reverse().map((goal, index)=>
+        this.props.goals.map((goal, index)=>
         (
         <Goal
           key={index}
@@ -31,6 +31,7 @@ render (){
           completion={goal.completion}
           name={goal.name}
           description={goal.description}
+          createdOn={goal.createdOn}
         />
         )
       )
