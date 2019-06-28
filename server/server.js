@@ -53,3 +53,14 @@ router.get('/goals', (req, res) => {
       })
     })
   })
+
+router.delete('/goals', (req, res) => {
+  Goal.remove({}, function(err){
+    if(err) {
+      console.log("Something went wrong")
+    } else {
+      res.send("DELETED ALL");
+    }
+  })
+
+})

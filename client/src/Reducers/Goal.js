@@ -1,6 +1,7 @@
 const goalReducer = (state = [], payload) => {
   switch(payload.type){
     case 'POPULATE_GOALS':
+      console.log("POPGOALS");
       return [
         ...state,
         ...payload.goals

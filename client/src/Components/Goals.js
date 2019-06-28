@@ -1,5 +1,6 @@
 import React from 'react';
 import Goal from './Goal';
+import GoalForm from './GoalForm'
 import { connect } from 'react-redux';
 import { api_url } from '../API/api'
 
@@ -20,6 +21,8 @@ componentDidUpdate(){
 
 render (){
   return (
+    <div>
+    <GoalForm />
     <div className="row jumbotron goal-post">
       {
         this.props.goals.map((goal, index)=>
@@ -36,6 +39,7 @@ render (){
         )
       )
       }
+    </div>
     </div>
     )
   }

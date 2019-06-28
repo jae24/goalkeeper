@@ -57,11 +57,13 @@ class GoalForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFormSubmission}>
-          <input required={true} type="text" value={this.state.name} placeholder="name" onChange={this.handleNameChange}></input>
-          <input required={true} type="text" value={this.state.description} placeholder="description" onChange={this.handleDescriptionChange}></input>
-          <input className="btn-success" type="submit"/>
-        </form>
+        <div className="form-wrapper">
+          <form className="goal-form" onSubmit={this.handleFormSubmission}>
+            <input required={true} type="text" value={this.state.name} placeholder="name" onChange={this.handleNameChange}></input>
+            <input required={true} type="text" value={this.state.description} placeholder="description" onChange={this.handleDescriptionChange}></input>
+            <input className="btn-success" type="submit"/>
+          </form>
+        </div>
       </div>
     )
   }
