@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const router = express.Router();
-const uri = 'mongodb+srv://sys_admin:master_password@cluster0-gpkwx.mongodb.net/test?retryWrites=true&w=majority'
+const uri = 'mongodb+srv://bella:bellabuster@cluster0-gpkwx.mongodb.net/test?retryWrites=true&w=majority'
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));

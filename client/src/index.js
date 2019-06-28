@@ -2,25 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import goalReducer from './Reducers/Goal'
-import { render } from 'react-dom';
+import goalReducer from './Reducers/Goal';
 import { Provider } from 'react-redux'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { fetchGoals } from './Actions/Goal'
+import thunk from 'redux-thunk'
 
 const store = createStore(combineReducers({
   goals: goalReducer
-}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+}), applyMiddleware(thunk));
 
 store.subscribe(()=>{
   console.log("STORE UPDATED", store.getState());
 });
 
-render(
+const jsx = (
   <Provider store={store}>
     <App />
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 )
+
+store.dispatch(fetchGoals()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('root'));
+});
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

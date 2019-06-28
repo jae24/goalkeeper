@@ -1,7 +1,7 @@
 import React from 'react';
 import Goal from './Goal';
 import { connect } from 'react-redux';
-import { createGoal } from '../Actions/Goal';
+import { api_url } from '../API/api'
 
 // Maps/Binds the state of this class-based component to the
 // portion of the state that is managed by the goal reducer.
@@ -14,32 +14,15 @@ const mapStateToProps = (state) => {
 
 class Goals extends React.Component {
 
-//Props contains the object created in the function above (mapStateToProps)
-// We set the GOAL value within the state object of this cbc
-state = {
-  goal: this.props
-}
-
-// Pulls data from database
-componentWillMount(){
-  console.log("Loading shit from the database");
-}
-
-// Checks to see that goals re loaded correctly
-componentDidMount(){
-  console.log("Loaded goals: ", this.state.goals);
-}
-
-// Same shit
 componentDidUpdate(){
-  console.log("some shit came here", this.props.goals);
+  console.log("Goals List was updated.");
 }
 
 render (){
   return (
     <div className="row jumbotron goal-post">
       {
-        this.props.goals.map((goal, index)=>
+        this.props.goals.reverse().map((goal, index)=>
         (
         <Goal
           key={index}
