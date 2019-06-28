@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { createGoal } from '../Actions/Goal';
+import uuid from 'uuid';
 
 // Using the react-redux library,
 // We give this component a dispatch function within its props.
@@ -13,10 +14,12 @@ const mapDispatchToProps = (dispatch, props) => ({
 class GoalForm extends React.Component {
   // CLASS PROPERTIES CAN NOW BE SET DIRECTLY WITHOUT A CONSTRUCTOR
   state = {
+      id: uuid(),
       name: '',
       description: '',
       daysLeft: 10,
-      completion: 100
+      completion: 100,
+      createdOn: Date.now()
   }
 
   // ARROW FUNCTIONS DIRECTLY BIND TO THE CLASS IT IS NAMED IN
@@ -25,19 +28,23 @@ class GoalForm extends React.Component {
     console.log(e.target);
 
     const newGoal = {
+      id: this.state.id,
       name: this.state.name,
-      description: this.state.description
+      description: this.state.description,
+      createdOn: this.state.createdOn
     }
 
     this.props.createGoal(newGoal);
 
     axios.post('http://localhost:3001/api/create', {
-      ...this.state
+      ...newGoal
     })
 
     this.setState({
+      id: uuid(),
       name: '',
-      description: ''
+      description: '',
+      createdOn: Date.now()
     })
   }
 

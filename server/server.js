@@ -28,13 +28,12 @@ const Goal = require('./Schema/goalSchema');
 // API Routes
 router.post('/create', (req, res) => {
   // console.log(`name: ${req.body.name} description: ${req.body.description}`);
-
-  const timeNow = Date.now();
-
+  console.log(req.body);
   const newGoal = new Goal({
+    _id: req.body.id,
     name: req.body.name,
     description: req.body.description,
-    createdOn: timeNow
+    createdOn: req.body.createdOn
   })
 
   newGoal.save((err)=>{
@@ -53,6 +52,15 @@ router.get('/goals', (req, res) => {
       })
     })
   })
+
+router.get('/goals/:id', (req, res) => {
+  Goal.findOne({_id: req.params.id}, function(err, goal){
+    console.log(goal);
+    res.json({
+      goal
+    })
+  })
+})
 
 router.delete('/goals', (req, res) => {
   Goal.remove({}, function(err){

@@ -13,6 +13,12 @@ export const createGoal = (payload = {}) => ({
   }
 });
 
+export const populateGoals = (payload = []) => ({
+  type: 'POPULATE_GOALS',
+  goals: payload
+})
+
+// Async Functions
 export const deleteGoals = () => {
   return async function(dispatch) {
     axios
@@ -28,12 +34,7 @@ export const fetchGoals = () => {
     axios
       .get(`${ api_url }/goals`)
       .then((res)=> {
-        dispatch(populateGoals(res.data.goals))
+        dispatch(populateGoals(res.data.goals));
     })
   }
 };
-
-export const populateGoals = (payload = []) => ({
-  type: 'POPULATE_GOALS',
-  goals: payload
-})
