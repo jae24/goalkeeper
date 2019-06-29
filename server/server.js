@@ -27,20 +27,19 @@ const Goal = require('./Schema/goalSchema');
 
 // API Routes
 router.post('/create', (req, res) => {
-  // console.log(`name: ${req.body.name} description: ${req.body.description}`);
-  console.log(req.body);
+
   const newGoal = new Goal({
     _id: req.body.id,
     name: req.body.name,
     description: req.body.description,
-    createdOn: req.body.createdOn
+    createdOn: req.body.createdOn,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate
   })
 
   newGoal.save((err)=>{
     console.log("New goal successfully saved")
   })
-
-  console.log(newGoal)
 })
 
 

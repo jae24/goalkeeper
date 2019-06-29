@@ -5,6 +5,7 @@ import Header from './Components/Header'
 import About from './Components/About'
 import GoalPage from './Components/GoalPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import 'react-dates/lib/css/_datepicker.css';
 
 function App() {
   return (

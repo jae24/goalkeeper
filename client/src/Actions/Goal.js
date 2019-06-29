@@ -7,9 +7,9 @@ export const createGoal = (payload = {}) => ({
   goal: {
     name: payload.name,
     description: payload.description,
-    daysLeft: 10,
-    completion: 100,
-    hoursPerDay: 2
+    createdOn: payload.createdOn,
+    startDate: payload.startDate,
+    endDate: payload.endDate
   }
 });
 

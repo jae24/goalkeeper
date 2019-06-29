@@ -5,7 +5,9 @@ const goalSchema = {
   _id: String,
   name: String,
   description: String,
-  createdOn: String
+  createdOn: String,
+  startDate: String,
+  endDate: String
 }
 
 var Goal = mongoose.model('Goal', goalSchema);
