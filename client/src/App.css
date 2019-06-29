@@ -3,6 +3,81 @@ html, body {
   overflow-x: hidden;
 }
 
+.main-nav {
+  background-color: #FF6A5C;
+}
+
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1553484771-898ed465e931?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  text-shadow: 1px 1px 2px black;
+  height: 900px;
+}
+
+.hero-text {
+  padding-top: 50px;
+  font-size: 90px;
+}
+
+.info1 {
+  text-align: center;
+}
+
+.info-box {
+  padding: 100px;
+  background-color: #fff;
+  border-radius: 50px;
+}
+
+.info-text {
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.info-icon {
+  width: 100px;
+  display: block;
+  margin: auto;
+}
+
+.info-box-title {
+  text-align: center;
+}
+
+.pic-div {
+  margin-bottom: 50px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #fff;
+  float: right;
+  margin: 0 10px 0 10px;
+}
+
+.index-panel {
+  display: flex;
+  display: grid;
+  padding: 50px 0 50px 0;
+  font-family: 'DM Serif Text', serif;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.matte-panel {
+  background-color: #414141;
+  color: #fff;
+}
+
+.fresh-panel {
+  background-color: #CCDFCB;
+}
+
+/* (Matte) #414141
+(FRESH) #CCDFCB
+(Watermelon) #FF6A5C
+(Teal) $056571 */
+
 .DateRangePickerInput__withBorder {
   border-radius: 0!important;
   border: 0!important;
@@ -36,13 +111,8 @@ html, body {
   font-weight: lighter;
 }
 
-.row {
-  margin: none!important;
-}
-
 .navbar-logo {
   color: #fff;
-  font-family: 'Bangers', cursive;
 }
 
 .jumbotron {
