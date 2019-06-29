@@ -77,7 +77,15 @@ export default () => (
               <h3 className="info-box-title">Track Your Progress</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
+          </div>
+        </div>
+        <div className="fresh-panel">
+          <h1 style={{textAlign: "center"}}>Goals Feed</h1>
+          <div className="row" style={{backgroundColor: '#fff', color: 'black'}}>
+            <div className="col-md-4">hi</div>
+            <div className="col-md-4">hi</div>
+            <div className="col-md-4">hi</div>
+          </div>
         </div>
     </div>
-  </div>
 )

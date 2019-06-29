@@ -54,7 +54,6 @@ html, body {
 .info-box {
   padding: 100px;
   background-color: #fff;
-  border-radius: 50px;
 }
 
 .info-text {
@@ -93,8 +92,6 @@ html, body {
 }
 
 .index-panel {
-  display: flex;
-  display: grid;
   background-color: #fff;
   padding: 50px 0 50px 0;
   font-family: $standard-font;
