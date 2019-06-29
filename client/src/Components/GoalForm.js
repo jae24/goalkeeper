@@ -6,7 +6,6 @@ import uuid from 'uuid';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 
-
 // Using the react-redux library,
 // We give this component a dispatch function within its props.
 // This function takes a goal parameter and dispatches it to createGoal in actions/goal
@@ -20,9 +19,9 @@ class GoalForm extends React.Component {
       id: uuid(),
       name: '',
       description: '',
-      daysLeft: 10,
-      completion: 100,
-      createdOn: Date.now()
+      createdOn: Date.now(),
+      startDate: null,
+      endDate: null
   }
 
   // ARROW FUNCTIONS DIRECTLY BIND TO THE CLASS IT IS NAMED IN
@@ -40,8 +39,6 @@ class GoalForm extends React.Component {
 
     this.props.createGoal(newGoal);
 
-    console.log(typeof newGoal.startDate);
-
     axios.post('http://localhost:3001/api/create', {
       ...newGoal
     })
@@ -50,7 +47,9 @@ class GoalForm extends React.Component {
       id: uuid(),
       name: '',
       description: '',
-      createdOn: Date.now()
+      createdOn: Date.now(),
+      startDate: null,
+      endDate: null
     })
   }
 
@@ -72,16 +71,15 @@ class GoalForm extends React.Component {
       <div>
         <div className="form-wrapper">
           <form className="goal-form" onSubmit={this.handleFormSubmission}>
-            <input required={true} type="text" value={this.state.name} placeholder="name" onChange={this.handleNameChange}/>
-            <input required={true} type="text" value={this.state.description} placeholder="description" onChange={this.handleDescriptionChange}/>
+            <input className="goal-form-text" required={true} type="text" value={this.state.name} placeholder="name" onChange={this.handleNameChange}/>
+            <input className="goal-form-text" required={true} type="text" value={this.state.description} placeholder="description" onChange={this.handleDescriptionChange}/>
             <DateRangePicker
-              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-            />
-            <input className="btn-success" type="submit"/>
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+              focusedInput={this.state.focusedInput}
+              onFocusChange={focusedInput => this.setState({ focusedInput })} />
+            <input className="btn-success" style={ {cursor: 'pointer' }} type="submit"/>
           </form>
         </div>
       </div>

@@ -11,9 +11,6 @@ export default (props) => (
             <h3>{props.name}</h3>
           </Link>
           <p className="card-text">{props.description}</p>
-          <p className="card-text">Hours Per Day: {props.hoursPerDay}</p>
-          <p className="card-text text-muted">{props.daysLeft} Days Remaining</p>
-          <p className="card-text text-muted">{props.completion}% Completed</p>
           <p className="card-text text-muted">Created {props.createdOn ? props.createdOn : "Just Now"}</p>
         </ul>
       </div>

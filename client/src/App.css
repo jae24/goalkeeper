@@ -1,21 +1,43 @@
+/* Overrides */
+html, body {
+  overflow-x: hidden;
+}
+
+.DateRangePickerInput__withBorder {
+  border-radius: 0!important;
+  border: 0!important;
+}
+
 .goal-card {
   height: 300px;
   margin: 25px;
 }
 
-.goal-post {
-  padding: 0;
+.form-wrapper {
+  text-align: center;
+}
+
+.goal-form-text {
+  outline: none;
+  border: 1px;
+  padding-left: 15px;
 }
 
 .goal-form {
-  text-align: center;
-  background-color: #e9ecef;
-  padding: 30px;
-  font-size: 25px;
+  background-color: #000;
+  font-size: 19px;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
 }
 
 .goal-form input {
-  text-align: center;
+  height: 70px;
+  font-weight: lighter;
+}
+
+.row {
+  margin: none!important;
 }
 
 .navbar-logo {

@@ -23,23 +23,25 @@ render (){
   return (
     <div>
     <GoalForm />
-    <div className="row jumbotron goal-post">
-      {
-        this.props.goals.map((goal, index)=>
-        (
-        <Goal
-          key={index}
-          goalid={goal._id}
-          hoursPerDay={goal.hoursPerDay}
-          daysLeft={goal.daysLeft}
-          completion={goal.completion}
-          name={goal.name}
-          description={goal.description}
-          createdOn={goal.createdOn}
-        />
-        )
-      )
-      }
+    <div className="jumbotron goal-post">
+      <div className="row">
+        {
+          this.props.goals.map((goal, index)=>
+          (
+            <Goal
+              key={index}
+              goalid={goal._id}
+              hoursPerDay={goal.hoursPerDay}
+              daysLeft={goal.daysLeft}
+              completion={goal.completion}
+              name={goal.name}
+              description={goal.description}
+              createdOn={goal.createdOn}
+              />
+          )
+         )
+       }
+      </div>
     </div>
     </div>
     )
