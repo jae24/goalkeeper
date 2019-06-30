@@ -32,12 +32,13 @@ render (){
             <Goal
               key={index}
               goalid={goal._id}
-              hoursPerDay={goal.hoursPerDay}
-              daysLeft={goal.daysLeft}
-              completion={goal.completion}
-              name={goal.name}
-              description={goal.description}
-              createdOn={goal.createdOn}
+              creatorName={goal.creatorName}
+              creatorPhoneNumber= {goal.creatorName}
+              goalTitle= {goal.goalTitle}
+              goalDescription= {goal.goalDescription}
+              createdOn= {goal.createdOn}
+              startDate= {goal.startDate}
+              endDate= {goal.endDate}
               />
           )
          )

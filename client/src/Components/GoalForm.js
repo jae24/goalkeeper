@@ -19,8 +19,12 @@ class GoalForm extends React.Component {
   // CLASS PROPERTIES CAN NOW BE SET DIRECTLY WITHOUT A CONSTRUCTOR
   state = {
       _id: '',
-      name: '',
-      description: '',
+      creatorName: '',
+      creatorPhoneNumber :'',
+      goalTitle: '',
+      goalDescription: '',
+      dailyAction: '',
+      noteToSelf: '',
       createdOn: Date.now(),
       startDate: null,
       endDate: null
@@ -32,8 +36,12 @@ class GoalForm extends React.Component {
 
     const newGoal = {
       _id: uuid(),
-      name: this.state.name,
-      description: this.state.description,
+      creatorName: this.state.creatorName,
+      creatorPhoneNumber: this.state.creatorPhoneNumber,
+      goalTitle: this.state.goalTitle,
+      goalDescription: this.state.goalDescription,
+      dailyAction: this.state.dailyAction,
+      noteToSelf: this.state.noteToSelf,
       createdOn: this.state.createdOn,
       startDate: this.state.startDate._d,
       endDate: this.state.endDate._d
@@ -48,9 +56,39 @@ class GoalForm extends React.Component {
     this.props.history.push('/goals');
   }
 
-  handleNameChange = (e) => {
+  handleNoteToSelfChange = (e) => {
     this.setState({
-      name: e.target.value
+      noteToSelf: e.target.value
+    })
+  }
+
+  handleDailyActionChange = (e) => {
+    this.setState({
+      dailyAction: e.target.value
+    })
+  }
+
+  handleNoteToSelfChange = (e) => {
+    this.setState({
+      noteToSelf: e.target.value
+    })
+  }
+
+  handleCreatorNameChange = (e) => {
+    this.setState({
+      creatorName: e.target.value
+    })
+  }
+
+  handleCreatorPhoneNumberChange = (e) => {
+    this.setState({
+      creatorPhoneNumber: e.target.value
+    })
+  }
+
+  handleGoalTitleChange = (e) => {
+    this.setState({
+      goalTitle: e.target.value
     })
   }
 
@@ -67,13 +105,37 @@ class GoalForm extends React.Component {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>Name</label>
-            <input className="form-control" required={true} type="text" value={this.state.name} onChange={this.handleNameChange}/>
+            <input className="form-control" required={true} type="text" value={this.state.creatorName} onChange={this.handleCreatorNameChange}/>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>Phone Number</label>
+            <input className="form-control" required={true} type="text" value={this.state.creatorPhoneNumber} onChange={this.handleCreatorPhoneNumberChange}/>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>What's your Goal?</label>
+            <input className="form-control" required={true} type="text" value={this.state.name} onChange={this.handleGoalTitleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>Description</label>
-            <textarea style={{ height: '200px' }}className="form-control" required={true} type="textArea" value={this.state.description} onChange={this.handleDescriptionChange}/>
+            <textarea style={{ height: '200px' }}className="form-control" type="textArea" value={this.state.description} onChange={this.handleDescriptionChange}/>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>Your Daily Commitment</label>
+            <input className="form-control" required={true} type="text" value={this.state.dailyAction} onChange={this.handleDailyActionChange}/>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>Note To Yourself</label>
+            <input className="form-control" required={true} type="text" value={this.state.noteToSelf} onChange={this.handleNoteToSelfChange}/>
           </div>
         </div>
       <div className="form-group">

@@ -7,7 +7,7 @@ const router = express.Router();
 const uri = 'mongodb+srv://bella:bellabuster@cluster0-gpkwx.mongodb.net/test?retryWrites=true&w=majority'
 const app = express();
 const moment = require('moment');
-const { sendMessage } = require('./services/Notification')
+const { sendMessage, initialMessage } = require('./services/Notification')
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,7 +19,7 @@ const Goal = require('./Schema/goalSchema');
 
 // Add a listener for the server
 app.listen(LOCAL_PORT, () => {
-  // sendMessage();
+  // sendMessage()
   console.log(`Listening on PORT ${LOCAL_PORT}`);
 })
 // Connect DB
@@ -27,19 +27,30 @@ mongoose.connect(uri, {useNewUrlParser:true}, ()=>{
   console.log("successfully connected to mongodb");
 });
 
+router.get('/testMessages', (req, res)=>{
+  sendMessage()
+  res.send({
+    status: "Messages sent"
+  })
+})
+
 // API Routes
 router.post('/goals', (req, res) => {
 
-  console.log(req.body)
-
   const newGoal = new Goal({
     _id: req.body._id,
-    name: req.body.name,
-    description: req.body.description,
+    creatorName: req.body.creatorName,
+    creatorPhoneNumber: req.body.creatorPhoneNumber,
+    goalTitle: req.body.goalTitle,
+    goalDescription: req.body.goalDescription,
+    dailyAction: req.body.dailyAction,
+    noteToSelf: req.body.noteToSelf,
     createdOn: req.body.createdOn,
     startDate: req.body.startDate,
     endDate: req.body.endDate
   })
+
+  initialMessage(newGoal);
 
   newGoal.save((err)=>{
     console.log("New goal successfully saved")

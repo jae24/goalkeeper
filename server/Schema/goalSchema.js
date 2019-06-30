@@ -3,8 +3,12 @@ const mongoose = require('mongoose');
 // Schema for GOAL
 const goalSchema = {
   _id: String,
-  name: String,
-  description: String,
+  creatorName: String,
+  creatorPhoneNumber: String,
+  goalTitle: String,
+  goalDescription: String,
+  dailyAction: String,
+  noteToSelf: String,
   createdOn: String,
   startDate: String,
   endDate: String

@@ -6,8 +6,12 @@ export const createGoal = (payload = {}) => ({
   type: 'CREATE_GOAL',
   goal: {
     _id: payload._id,
-    name: payload.name,
-    description: payload.description,
+    creatorName: payload.creatorName,
+    creatorPhoneNumber: payload.creatorPhoneNumber,
+    goalTitle: payload.goalTitle,
+    goalDescription: payload.goalDescription,
+    dailyAction: payload.dailyAction,
+    noteToSelf: payload.noteToSelf,
     createdOn: payload.createdOn,
     startDate: payload.startDate,
     endDate: payload.endDate
@@ -20,7 +24,7 @@ export const populateGoals = (payload = []) => ({
 })
 
 export const deleteGoals = () => ({
-  type: 'GET_EMPTY_GOALS',
+  type: 'DELETE_GOALS',
   goals: []
 })
 
