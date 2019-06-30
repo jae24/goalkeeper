@@ -7,23 +7,25 @@ const router = express.Router();
 const uri = 'mongodb+srv://bella:bellabuster@cluster0-gpkwx.mongodb.net/test?retryWrites=true&w=majority'
 const app = express();
 const moment = require('moment');
+const { sendMessage } = require('./services/Notification')
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/api', router);
 
-// Add a listener for application
+// Import Schemas
+const Goal = require('./Schema/goalSchema');
+
+// Add a listener for the server
 app.listen(LOCAL_PORT, () => {
+  // sendMessage();
   console.log(`Listening on PORT ${LOCAL_PORT}`);
 })
 // Connect DB
 mongoose.connect(uri, {useNewUrlParser:true}, ()=>{
   console.log("successfully connected to mongodb");
 });
-
-// Import Schemas
-const Goal = require('./Schema/goalSchema');
 
 // API Routes
 router.post('/goals', (req, res) => {
