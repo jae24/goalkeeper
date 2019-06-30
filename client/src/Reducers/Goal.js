@@ -1,4 +1,4 @@
-const goalReducer = (state = [], payload) => {
+const goalReducer = (state = [], payload = []) => {
   switch(payload.type){
     case 'POPULATE_GOALS':
       return [

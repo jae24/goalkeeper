@@ -2,6 +2,7 @@ import React from 'react';
 import Goal from './Goal';
 import GoalForm from './GoalForm'
 import { connect } from 'react-redux';
+import DeleteGoalsButton from './DeleteGoalsButton';
 
 // Maps/Binds the state of this class-based component to the
 // portion of the state that is managed by the goal reducer.
@@ -22,7 +23,7 @@ componentDidUpdate(){
 render (){
   return (
     <div>
-    <GoalForm />
+    <DeleteGoalsButton/>
     <div className="jumbotron goal-post">
       <div className="row">
         {

@@ -9,6 +9,7 @@ export default (props) => (
       <div className="link-wrapper">
         <Link to="/goals">Goals</Link>
         <Link to="/about">About</Link>
+        <Link to="/create">Create a Goal</Link>
         <Link to="/">Home</Link>
       </div>
     </nav>

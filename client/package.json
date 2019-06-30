@@ -39,7 +39,6 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
-    "manifest.json": "^1.2.0",
-    "webpack": "^4.35.0"
+    "manifest.json": "^1.2.0"
   }
 }

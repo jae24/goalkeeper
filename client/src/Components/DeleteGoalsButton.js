@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteGoals } from '../Actions/Goal'
+import { withRouter } from 'react-router-dom';
 
 const mapDispatchToProps = (dispatch) => ({
   deleteAll: () => dispatch(deleteGoals()),
@@ -9,6 +10,10 @@ const mapDispatchToProps = (dispatch) => ({
 class DeleteGoalsButton extends React.Component {
 
   onButtonClick = () => {
+    this.deleteAllGoals().then(this.props.history.push('/goals'));
+  }
+
+  deleteAllGoals = async () => {
     this.props.deleteAll();
   }
 
@@ -22,4 +27,4 @@ class DeleteGoalsButton extends React.Component {
 
 }
 
-export default connect(null, mapDispatchToProps)(DeleteGoalsButton);
+export default withRouter(connect(null, mapDispatchToProps)(DeleteGoalsButton));
