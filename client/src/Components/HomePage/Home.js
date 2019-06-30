@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IntroPanel from './IntroPanel';
 import '../../stylesheets/Home.scss';
 
 export default () => (
@@ -15,6 +16,7 @@ export default () => (
         </div>
       </div>
     </div>
+    < IntroPanel />
     <div className="clear-panel index-panel" id="left-info-panel">
       <div className="row" style={{paddingTop : '150px'}}>
         <div className="col-md-6">

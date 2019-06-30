@@ -22,8 +22,13 @@
   z-index: -1;
   background-color: $watermelon;
 }
+
 .main-nav {
-  background-color: $watermelon;
+  background-color: #FF6A5C;
+  box-shadow: 0 1px 2px 0px grey;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
 }
 
 .hero {
@@ -34,8 +39,8 @@
 }
 
 .hero-text {
-  padding-top: 50px;
-  font-size: 70px;
+  padding-top: 80px;
+  font-size: 80px;
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
      -moz-animation: fadein 1s; /* Firefox < 16 */
       -ms-animation: fadein 1s; /* Internet Explorer */
@@ -50,7 +55,7 @@
 
 .tagline {
   font-family: $standard-font;
-  font-size: 50px;
+  font-size: 80px;
 }
 
 .mission-header {
@@ -160,4 +165,26 @@
   left: 0;
   transform-origin: top right;
   transform: skewY(4deg);
+}
+
+
+// Intro Panel Styles
+
+.p-emphasize {
+  font-size: 45px;
+  font-family: $emphatic;
+  letter-spacing: 1px;
+}
+
+.warhol-quote {
+  font-size: 15px;
+}
+
+.intro-wrapper {
+  color: #fff;
+  height: 600px;
+  text-align: center;
+  padding-top: 8%;
+  font-size: 20px;
+  font-weight: lighter;
 }

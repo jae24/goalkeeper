@@ -11,9 +11,13 @@ html, body {
   font-family: $standard-font;
 }
 
+.page {
+  padding-top: 50px;
+  height: 800px;
+}
+
 
 .footer {
-  height: 200px;
   color: #fff;
   padding: 5%;
   text-align: center;

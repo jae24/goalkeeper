@@ -1,7 +1,7 @@
 import React from 'react';
 import Goals from './Components/Goals'
-import Header from './Components/Header'
-// import Footer from './Components/Footer'
+import Header from './Components/Global/Header'
+import Footer from './Components/Global/Footer'
 import About from './Components/About'
 import Home from './Components/HomePage/Home'
 import GoalPage from './Components/GoalPage'
@@ -22,7 +22,7 @@ function App() {
           <Route path="/about" exact component={About}/>
           <Route path="/goals/:id" exact component={GoalPage}/>
         </Switch>
-
+        <Footer/>
       </div>
     </Router>
   );
