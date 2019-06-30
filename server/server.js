@@ -26,7 +26,7 @@ mongoose.connect(uri, {useNewUrlParser:true}, ()=>{
 const Goal = require('./Schema/goalSchema');
 
 // API Routes
-router.post('/create', (req, res) => {
+router.post('/goals', (req, res) => {
 
   console.log(req.body)
 
@@ -42,28 +42,24 @@ router.post('/create', (req, res) => {
   newGoal.save((err)=>{
     console.log("New goal successfully saved")
   })
-})
-
-
-router.get('/goals', (req, res) => {
+}
+).get('/goals', (req, res) => {
     Goal.find().sort({ createdOn: -1}).exec(function(err, goals){
       console.log("FOUND");
       res.json({
         goals
       })
     })
-  })
-
-router.get('/goals/:id', (req, res) => {
+  }
+).get('/goals/:id', (req, res) => {
   Goal.findOne({_id: req.params.id}, function(err, goal){
     console.log(goal);
     res.json({
       goal
     })
   })
-})
-
-router.delete('/goals', (req, res) => {
+}
+).delete('/goals', (req, res) => {
   Goal.remove({}, function(err){
     if(err) {
       console.log("Something went wrong")
@@ -71,5 +67,16 @@ router.delete('/goals', (req, res) => {
       res.send("DELETED ALL");
     }
   })
-
+}
+).delete('/goal/:id', (req, res)=>{
+  Goal.deleteOne({_id: req.params.id}, function(err, goal){
+    if(err){
+      console.log("Something went wrong ", req.params.id);
+    } else {
+      console.log("goal removed", req.params);
+      res.json({
+        status: 'success'
+      })
+    }
+  })
 })

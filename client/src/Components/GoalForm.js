@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { createGoal } from '../Actions/Goal';
 import { withRouter } from 'react-router-dom';
-import uuid from 'uuid';
-import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
+import 'react-dates/initialize';
 import '../stylesheets/Goals.scss';
 
 // Using the react-redux library,
@@ -41,7 +41,7 @@ class GoalForm extends React.Component {
 
     this.props.createGoal(newGoal);
 
-    axios.post('http://localhost:3001/api/create', {
+    axios.post('http://localhost:3001/api/goals', {
       ...newGoal
     })
 

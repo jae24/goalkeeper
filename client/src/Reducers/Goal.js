@@ -1,6 +1,6 @@
 const goalReducer = (state = [], payload = []) => {
   switch(payload.type){
-    case 'GET_EMPTY_GOALS':
+    case 'DELETE_GOALS':
       return [
         ...payload.goals
       ]
@@ -10,11 +10,14 @@ const goalReducer = (state = [], payload = []) => {
         ...payload.goals
       ]
     case 'CREATE_GOAL':
-      console.log("NEW GOAL IS: ", payload.goal);
       return [
         payload.goal,
         ...state
       ];
+    case 'DELETE_GOAL':
+      return state.filter((goal) => {
+        return goal._id !== payload._id
+      })
     default:
       return state;
     }

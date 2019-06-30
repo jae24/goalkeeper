@@ -19,18 +19,34 @@ export const populateGoals = (payload = []) => ({
   goals: payload
 })
 
-export const getEmptyGoals = () => ({
+export const deleteGoals = () => ({
   type: 'GET_EMPTY_GOALS',
   goals: []
 })
 
+export const deleteGoal = (payload) => ({
+  type: 'DELETE_GOAL',
+  _id: payload
+})
+
+export const deleteGoalAsync = (payload) => {
+  console.log(payload);
+  return async function(dispatch) {
+    axios
+      .delete(`${ api_url }/goal/${payload}`)
+      .then((res) => {
+        dispatch(deleteGoal(payload));
+      })
+  }
+}
+
 // Async Functions
-export const deleteGoals = () => {
+export const deleteGoalsAsync = () => {
   return async function(dispatch) {
     axios
       .delete(`${ api_url }/goals`)
       .then((res)=> {
-        dispatch(getEmptyGoals())
+        dispatch(deleteGoals());
       })
   }
 }

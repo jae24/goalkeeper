@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteGoals } from '../Actions/Goal'
+import { deleteGoalsAsync } from '../Actions/Goal'
 import { withRouter } from 'react-router-dom';
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteAll: () => dispatch(deleteGoals()),
+  deleteAll: () => dispatch(deleteGoalsAsync()),
 });
 
 class DeleteGoalsButton extends React.Component {
