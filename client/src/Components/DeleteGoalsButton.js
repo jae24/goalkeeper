@@ -19,8 +19,8 @@ class DeleteGoalsButton extends React.Component {
 
   render (){
     return (
-      <div>
-        <button onClick={this.onButtonClick}>Delete All</button>
+      <div className="delete-goal-btn-wrapper">
+        <button className="delete-goal-btn" onClick={this.onButtonClick}>Delete All</button>
       </div>
       )
     }

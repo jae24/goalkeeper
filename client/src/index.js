@@ -6,11 +6,13 @@ import goalReducer from './Reducers/Goal';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { fetchGoals } from './Actions/Goal'
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk'
 
 const store = createStore(combineReducers({
-  goals: goalReducer
-}), applyMiddleware(thunk));
+  goals:goalReducer
+}), composeWithDevTools(applyMiddleware(thunk)));
+
 
 store.subscribe(()=>{
   console.log("STORE UPDATED", store.getState());

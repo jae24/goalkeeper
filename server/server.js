@@ -28,8 +28,10 @@ const Goal = require('./Schema/goalSchema');
 // API Routes
 router.post('/create', (req, res) => {
 
+  console.log(req.body)
+
   const newGoal = new Goal({
-    _id: req.body.id,
+    _id: req.body._id,
     name: req.body.name,
     description: req.body.description,
     createdOn: req.body.createdOn,

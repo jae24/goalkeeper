@@ -1,11 +1,11 @@
 import React from 'react';
-import DeleteGoalsButton from './DeleteGoalsButton';
 import { Link } from 'react-router-dom'
+import '../stylesheets/Header.scss'
 
 export default (props) => (
   <div>
     <nav className="navbar main-nav">
-      <h2 className="navbar-logo">Accountabl.</h2>
+      <Link to="/"><span className="navbar-logo"> GoalJet > </span></Link>
       <div className="link-wrapper">
         <Link to="/goals">Goals</Link>
         <Link to="/about">About</Link>

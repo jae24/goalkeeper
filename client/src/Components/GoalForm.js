@@ -2,10 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { createGoal } from '../Actions/Goal';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import uuid from 'uuid';
 import 'react-dates/initialize';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
+import '../stylesheets/Goals.scss';
 
 // Using the react-redux library,
 // We give this component a dispatch function within its props.
@@ -17,7 +18,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 class GoalForm extends React.Component {
   // CLASS PROPERTIES CAN NOW BE SET DIRECTLY WITHOUT A CONSTRUCTOR
   state = {
-      id: uuid(),
+      _id: '',
       name: '',
       description: '',
       createdOn: Date.now(),
@@ -30,7 +31,7 @@ class GoalForm extends React.Component {
     e.preventDefault();
 
     const newGoal = {
-      id: this.state.id,
+      _id: uuid(),
       name: this.state.name,
       description: this.state.description,
       createdOn: this.state.createdOn,
@@ -54,7 +55,6 @@ class GoalForm extends React.Component {
   }
 
   handleDescriptionChange = (e) => {
-    console.log(e.target.value);
     this.setState({
       description: e.target.value
     })
@@ -73,18 +73,20 @@ class GoalForm extends React.Component {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>Description</label>
-            <textarea className="form-control" required={true} type="textArea" value={this.state.description} onChange={this.handleDescriptionChange}/>
+            <textarea style={{ height: '200px' }}className="form-control" required={true} type="textArea" value={this.state.description} onChange={this.handleDescriptionChange}/>
           </div>
         </div>
       <div className="form-group">
         <DateRangePicker
           startDate={this.state.startDate}
+          startDateId="start_date_id"
           endDate={this.state.endDate}
+          endDateId="end_date_id"
           onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
           focusedInput={this.state.focusedInput}
           onFocusChange={focusedInput => this.setState({ focusedInput })} />
       </div>
-      <input className="btn-success" style={ {cursor: 'pointer', padding: '10px' }} type="submit"/>
+      <input className="submit-btn" style={ {cursor: 'pointer', padding: '10px' }} type="submit"/>
       </form>
       </div>
     )

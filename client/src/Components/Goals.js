@@ -1,8 +1,8 @@
 import React from 'react';
 import Goal from './Goal';
-import GoalForm from './GoalForm'
 import { connect } from 'react-redux';
 import DeleteGoalsButton from './DeleteGoalsButton';
+import '../stylesheets/Goals.scss';
 
 // Maps/Binds the state of this class-based component to the
 // portion of the state that is managed by the goal reducer.

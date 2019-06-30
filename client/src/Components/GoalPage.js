@@ -1,6 +1,7 @@
 import React from 'react';
 import { api_url } from '../API/api';
 import axios from 'axios';
+import '../stylesheets/Goals.scss';
 
 class GoalPage extends React.Component{
   state = {}

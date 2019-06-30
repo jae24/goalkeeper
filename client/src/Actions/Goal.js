@@ -5,6 +5,7 @@ import { api_url } from '../API/api';
 export const createGoal = (payload = {}) => ({
   type: 'CREATE_GOAL',
   goal: {
+    _id: payload._id,
     name: payload.name,
     description: payload.description,
     createdOn: payload.createdOn,
@@ -18,13 +19,18 @@ export const populateGoals = (payload = []) => ({
   goals: payload
 })
 
+export const getEmptyGoals = () => ({
+  type: 'GET_EMPTY_GOALS',
+  goals: []
+})
+
 // Async Functions
 export const deleteGoals = () => {
   return async function(dispatch) {
     axios
       .delete(`${ api_url }/goals`)
       .then((res)=> {
-        dispatch(populateGoals())
+        dispatch(getEmptyGoals())
       })
   }
 }

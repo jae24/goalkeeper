@@ -1,0 +1,94 @@
+@import './_colors';
+@import './_fonts';
+@import './_stylized_elements.scss';
+
+.delete-goal-btn {
+  border: 1px solid red;
+  color: red;
+  background-color: white;
+  padding: 15px;
+  border-radius: 100px;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  width: 200px;
+
+  &:hover {
+    border: 1px solid $watermelon;
+    color: $watermelon;
+  }
+}
+
+.delete-goal-btn-wrapper {
+  margin: 50px;
+}
+
+.submit-btn {
+  @extend %standard-btn;
+}
+
+.goal-card {
+  height: 300px;
+  margin: 25px;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 2s; /* Firefox < 16 */
+      -ms-animation: fadein 2s; /* Internet Explorer */
+       -o-animation: fadein 2s; /* Opera < 12.1 */
+          animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.goal-card-wrapper a{
+  text-decoration: none;
+  color: #000;
+}
+
+.goal-card-title {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 150px;
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.card-details {
+  background-color: $watermelon;
+  height: 100%;
+}
+
+.form-wrapper {
+  text-align: center;
+}
+
+.goal-form-text {
+  outline: none;
+  border: 1px;
+  padding-left: 15px;
+}
+
+.goal-form {
+  background-color: #000;
+  font-size: 19px;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+.goal-form input {
+  height: 70px;
+  font-weight: lighter;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.dark-panel {
+  background-color: #fff;
+  height: 500px;
+}

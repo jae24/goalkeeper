@@ -1,20 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css'
+import '../stylesheets/Goals.scss';
 
 export default (props) => (
-  <div className="col-md-4 container">
+  <div className="col-md-3 container goal-card-wrapper">
+  <Link to={`goals/${props.goalid}`}>
     <div className="card goal-card">
-      <div className="card-body">
-        <ul>
-          <Link to={`goals/${props.goalid}`}>
-            <h3>{props.name}</h3>
-          </Link>
-          <p className="card-text">{props.description}</p>
-          <p className="card-text text-muted">Created {props.createdOn ? props.createdOn : "Just Now"}</p>
-        </ul>
+      <p><h5 className="goal-card-title">{props.name}</h5></p>
+      <div className="container card-details">
       </div>
     </div>
+  </Link>
   </div>
 
 )
