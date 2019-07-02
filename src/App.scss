@@ -12,3 +12,10 @@ html, body {
   height: 800px;
   margin-bottom: 100px;
 }
+
+
+@media only screen and (min-width: 1441px) {
+  body {
+    margin: 0 500px;
+  }
+}
