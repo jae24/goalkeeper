@@ -1,5 +1,7 @@
 const Goal = require('../Schema/goalSchema');
-const secrets = require('../../config/secrets');
+const path = require('path');
+const secretsPath = path.resolve(__dirname, '..', '..', 'config', 'secrets.js');
+const secrets = require(secretsPath);
 
 // Connect to twilio api
 const client = require('twilio')(secrets.accountSid, secrets.authToken);

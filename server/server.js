@@ -10,7 +10,10 @@ const path = require('path');
 
 // Exports from local JS files
 const { sendMessage, initialMessage } = require('./services/Notification');
-const secrets = require('../config/secrets');
+
+const secretsPath = path.resolve(__dirname, '..', 'config', 'secrets.js');
+
+const secrets = require(secretsPath);
 const mongoDB_uri = secrets.uri;
 
 // App middleware
