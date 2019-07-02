@@ -4,12 +4,16 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const router = express.Router();
-const uri = 'mongodb+srv://bella:bellabuster@cluster0-gpkwx.mongodb.net/test?retryWrites=true&w=majority'
 const app = express();
 const moment = require('moment');
 const path = require('path');
-const { sendMessage, initialMessage } = require('./services/Notification')
 
+// Exports from local JS files
+const { sendMessage, initialMessage } = require('./services/Notification');
+const secrets = require('../config/secrets');
+const mongoDB_uri = secrets.uri;
+
+// App middleware
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,7 +28,7 @@ app.listen(LOCAL_PORT, () => {
   console.log(`Listening on PORT ${LOCAL_PORT}`);
 })
 // Connect DB
-mongoose.connect(uri, {useNewUrlParser:true}, ()=>{
+mongoose.connect(mongoDB_uri, {useNewUrlParser:true}, ()=>{
   console.log("successfully connected to mongodb");
 });
 
