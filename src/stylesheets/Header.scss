@@ -6,3 +6,22 @@
   font-size: 30px;
   color: #fff;
 }
+
+.main-nav {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FF6A5C;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+@media only screen and (min-width: 1441px) {
+  .main-nav {
+    position: relative;
+  }
+
+  body {
+    margin: 0 500px;
+    background-color: #CCDFCB;
+  }
+}
