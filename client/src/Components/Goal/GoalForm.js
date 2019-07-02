@@ -2,11 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
-import { createGoal } from '../Actions/Goal';
+import { createGoal } from '../../Actions/Goal';
 import { withRouter } from 'react-router-dom';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
-import '../stylesheets/Goals.scss';
+import '../../stylesheets/Goals.scss';
 
 // Using the react-redux library,
 // We give this component a dispatch function within its props.
@@ -118,12 +118,6 @@ class GoalForm extends React.Component {
           <div className="form-group col-md-6">
             <label>What's your Goal?</label>
             <input className="form-control" required={true} type="text" value={this.state.name} onChange={this.handleGoalTitleChange}/>
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label>Description</label>
-            <textarea style={{ height: '200px' }}className="form-control" type="textArea" value={this.state.description} onChange={this.handleDescriptionChange}/>
           </div>
         </div>
         <div className="form-row">

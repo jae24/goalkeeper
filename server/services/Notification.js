@@ -9,7 +9,7 @@ const initialMessage = (goal) => {
   console.log(goal);
   console.log(`+1${goal.creatorPhoneNumber}`)
   const messageBody = `Hi ${goal.creatorName.split(' ')[0]},
-                       Thank you for setting a goal on GoalJet!
+                       Thank you for setting a goal on Goaly!
 
                        We will send you a daily reminder for ${goal.goalTitle} starting on ${goal.startDate}.
 
@@ -29,7 +29,7 @@ const sendMessage = () => {
   Goal.find().sort({ createdOn: -1}).exec(function(err, goals){
     goals.forEach((goal)=>{
       const messageBody = `Hi ${goal.creatorName.split(' ')[0]},
-                           This is your daily reminder from GoalJet to ${goal.goalTitle}.
+                           This is your daily reminder from Goaly to ${goal.goalTitle}.
 
                            Did you ${goal.dailyAction} today?
 

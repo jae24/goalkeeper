@@ -1,5 +1,5 @@
 const express = require('express');
-const LOCAL_PORT = 3001;
+const LOCAL_PORT = 3001 || process.env.PORT;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -58,7 +58,6 @@ router.post('/goals', (req, res) => {
 }
 ).get('/goals', (req, res) => {
     Goal.find().sort({ createdOn: -1}).exec(function(err, goals){
-      console.log("FOUND");
       res.json({
         goals
       })

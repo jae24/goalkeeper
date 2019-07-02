@@ -1,8 +1,8 @@
 import React from 'react';
 import Goal from './Goal';
 import { connect } from 'react-redux';
-import DeleteGoalsButton from './DeleteGoalsButton';
-import '../stylesheets/Goals.scss';
+import ButtonToolBelt from './ButtonToolBelt';
+import '../../stylesheets/Goals.scss';
 
 // Maps/Binds the state of this class-based component to the
 // portion of the state that is managed by the goal reducer.
@@ -23,7 +23,7 @@ componentDidUpdate(){
 render (){
   return (
     <div>
-    <DeleteGoalsButton/>
+    <ButtonToolBelt />
     <div className="jumbotron goal-post">
       <div className="row">
         {

@@ -2,7 +2,7 @@
 @import './_fonts';
 @import './_stylized_elements.scss';
 
-.delete-goal-btn {
+.toolbelt-btn {
   border: 1px solid red;
   color: red;
   background-color: white;
@@ -19,12 +19,23 @@
   }
 }
 
+.toolbelt-btn-create {
+  @extend .toolbelt-btn;
+  border: 1px solid $teal;
+  color: $teal;
+
+  &:hover {
+    color: #008B8B;
+    border: 1px solid #008B8B;
+  }
+}
+
 .goal-post {
   height: 800px;
 }
 
 .page-container {
-  padding: 70px 0 20px 0;
+  padding: 80px 0 20px 0;
 
 }
 
@@ -32,8 +43,13 @@
   @extend %standard-btn;
 }
 
+.goal-link {
+  color: white;
+  display: block;
+}
+
 .goal-card {
-  height: 300px;
+  height: 325px;
   margin: 25px;
   transition: 0.3s;
   -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
@@ -54,7 +70,7 @@
 
 .goal-card-wrapper a{
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .goal-card-title {
@@ -105,7 +121,8 @@
 }
 
 .goal-page-details {
-  padding: 100px;
+  height: fit-content;
   margin: 80px;
-  border: 1px solid black;
+  border-radius: 20px;
+  border: 1px solid $fresh;
 }
