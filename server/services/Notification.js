@@ -1,9 +1,18 @@
 const Goal = require('../Schema/goalSchema');
 const path = require('path');
-const secrets = require('../../config/secrets') || '';
+let secrets = {};
 
-const accountSid = process.env.accountSid || secrets.accountSid;
-const authToken = process.env.authToken || secrets.authToken;
+if(process.env.NODE_ENV === 'production'){
+  secrets = {
+    accountSid: process.env.accountSid,
+    authToken: process.env.authToken
+  }
+} else {
+  secrets = require('../../config/secrets');
+}
+
+const accountSid = secrets.accountSid;
+const authToken = secrets.authToken;
 
 console.log(accountSid);
 
