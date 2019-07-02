@@ -11,7 +11,16 @@ const path = require('path');
 // Exports from local JS files
 const { sendMessage, initialMessage } = require('./services/Notification');
 
-const secrets = require('../config/secrets');
+let secrets = {};
+
+if(process.env.NODE_ENV === 'production'){
+  secrets = {
+    uri: process.env.uri
+  }
+} else {
+  secrets = require('../config/secrets');
+}
+
 const mongoDB_uri = secrets.uri;
 
 // App middleware
