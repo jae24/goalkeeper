@@ -1,5 +1,5 @@
 const express = require('express');
-const LOCAL_PORT = 3001 || process.env.PORT;
+const LOCAL_PORT = process.env.PORT || 3001;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -7,6 +7,7 @@ const router = express.Router();
 const uri = 'mongodb+srv://bella:bellabuster@cluster0-gpkwx.mongodb.net/test?retryWrites=true&w=majority'
 const app = express();
 const moment = require('moment');
+const path = require('path');
 const { sendMessage, initialMessage } = require('./services/Notification')
 
 app.use(cors());
@@ -92,3 +93,13 @@ router.post('/goals', (req, res) => {
     }
   })
 })
+
+// Serve static assets in production
+if(process.env.NODE_ENV === 'production') {
+  // Sets the static folder
+  app.use(express.static('../build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'))
+  });
+}
