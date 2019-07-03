@@ -8,11 +8,23 @@
 }
 
 .main-nav {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #FF6A5C;
+  font-family: $emphatic;
+  background-color: $watermelon;
   position: fixed;
   width: 100%;
   z-index: 5;
+
+  .navbar-links {
+    text-decoration: none;
+    color: #fff;
+    float: right;
+    margin: 0 10px 0 10px;
+    border-bottom: 1px solid $watermelon;
+
+    &:hover {
+      border-bottom: 1px solid #fff;
+    }
+  }
 }
 
 @media only screen and (min-width: 1441px) {

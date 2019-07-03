@@ -10,6 +10,7 @@ export default () => (
         <div className="hero-text">
           <strike className="tagline">You Can.</strike>
           <div className="tagline">You Will.</div>
+          <Link className="demo-btn" to="/goals">Try the Demo</Link>
         </div>
       </div>
     </div>

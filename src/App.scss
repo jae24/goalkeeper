@@ -1,6 +1,9 @@
 @import './stylesheets/_colors';
 @import './stylesheets/_fonts';
 
+a {
+  text-decoration: none;
+}
 
 /* Overrides */
 html, body {

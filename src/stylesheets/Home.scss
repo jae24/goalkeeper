@@ -49,6 +49,11 @@
 .info-box {
   padding: 100px;
   background-color: #fff;
+
+  p {
+    font-family: $standard-font;
+    padding: 0 25px 0 25px;
+  }
 }
 
 .info-text {
@@ -75,26 +80,14 @@
   text-align: center;
 }
 
-.info-box p {
-  font-family: 'Open Sans', sans-serif;
-  padding: 0 25px 0 25px;
-}
-
 .pic-div {
   margin-bottom: 50px;
-}
-
-.main-nav a {
-  text-decoration: none;
-  color: #fff;
-  float: right;
-  margin: 0 10px 0 10px;
 }
 
 .index-panel {
   background-color: #fff;
   padding: 50px 0 50px 0;
-  font-family: $standard-font;
+  font-family: $emphatic;
 }
 
 .matte-panel {
@@ -174,4 +167,22 @@
   padding-top: 8%;
   font-size: 20px;
   font-weight: lighter;
+
+  p {
+    font-family: "DM Serif Display", serif;
+  }
+}
+
+.demo-btn {
+  background-color: #056571;
+  width: 300px;
+  font-size: 20px;
+  text-shadow: none;
+  padding: 25px 15px 25px 15px !important;
+  letter-spacing: 2px;
+  font-family: "Staatliches", cursive;
+
+  &:hover {
+    background-color: #008B8B;
+  }
 }
