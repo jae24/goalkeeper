@@ -28,8 +28,10 @@ class GoalPage extends React.Component{
 
   getCreationDate = () => {
     let differenceInDays =  Math.floor((Date.now() - this.state.createdOn)/ (1000*60*60*24));
-    if(differenceInDays <= 1){
-      return 'Created Yesterday';
+    if(differenceInDays === 0){
+      return 'Created Today';
+    } else if(differenceInDays === 1){
+        return 'Created Yesterday';
     } else {
       let daysAgo = Math.floor(differenceInDays);
       return `Created ${daysAgo} days ago`;

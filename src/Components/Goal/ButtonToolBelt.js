@@ -25,8 +25,8 @@ class ButtonToolBelt extends React.Component {
     return (
       <div className="page-container">
         <div className="row">
-          <button className="toolbelt-btn" onClick={this.onDeleteButtonClick}>Delete All</button>
           <button className="toolbelt-btn-create" onClick={this.onCreateButtonClick}>Create a New Goal</button>
+          <button className="toolbelt-btn" onClick={this.onDeleteButtonClick}>Delete All</button>
         </div>
       </div>
       )

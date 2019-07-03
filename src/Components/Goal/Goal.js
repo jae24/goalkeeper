@@ -30,7 +30,7 @@ class Goal extends React.Component {
           <div className="container card-details">
             <div className="row">
               <div className="col-md-3">
-                <img style={{width: '50px', borderRadius: '100px'}}src="https://cdn-images-1.medium.com/max/1200/1*MccriYX-ciBniUzRKAUsAw.png"/>
+                <img style={{width: '50px', borderRadius: '100px'}} src="https://cdn-images-1.medium.com/max/1200/1*MccriYX-ciBniUzRKAUsAw.png" alt="profile-pic"/>
               </div>
               <div className="col-md-9">
                 <span style={{color: 'white', display: 'block', textAlign: 'right'}}>Created by {this.props.creatorName}</span>
