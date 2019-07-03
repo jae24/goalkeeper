@@ -25,7 +25,7 @@ export default (props) => {
         <div className="row graph-row">
           <div className="col-md-6">
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-3">
                 <div className="goal-page-content">
                   <span className="goal-page-header">Start Date</span>
                   <div className="endDate">{dateConverter(props.goal.startDate)}</div>
@@ -39,22 +39,20 @@ export default (props) => {
                   <div className="endDate">{calculateDaysRemaining(props.goal.endDate)} Days</div>
                 </div>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-9">
                 <span className="goal-page-header">Percentage Completed</span>
                 <GoalCompletionChart />
               </div>
             </div>
           </div>
         </div>
-        <h4 className="goal-page-header">Response Charts</h4>
+        <h4 className="goal-page-header">Response Data</h4>
         <div className="row graph-row">
           <div className="col-md-4">
             <h6>Q: Did you remember to {props.goal.goalTitle}?</h6>
             <GoalPieChart goal={props.goal}/>
           </div>
-        </div>
-        <div className="row graph-row">
-          <div className="col-md-4">
+          <div className="col-md-8">
             <h6>Q: How much time did you spend on {props.goal.goalTitle}?</h6>
             <GoalLineChart goal={props.goal}/>
           </div>

@@ -36,7 +36,7 @@ class Goal extends React.Component {
                 <span style={{color: 'white', display: 'block', textAlign: 'right'}}>Created by {this.props.creatorName}</span>
                 <br/>
                 <Link style={{ display: 'block', textAlign: 'right'}}to={`goals/${this.props.goalid}`}>
-                  <FontAwesomeIcon icon={faArrowRight} />
+                  Details <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>
             </div>

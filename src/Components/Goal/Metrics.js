@@ -12,13 +12,14 @@ export const GoalCompletionChart = (props) => {
         }]}
       totalValue={100}
       lineWidth={20}
-      style={{width: '150px'}}
+      style={{width: '100px'}}
       label
       labelStyle={{
         fontSize: '25px',
         fontFamily: 'sans-serif'
       }}
       labelPosition={0}
+      animate
     />
   )
 }
@@ -105,7 +106,7 @@ export const GoalLineChart = (props) => {
   }
 
   return (
-    <LineChart data={dummyData} xtitle="Date" ytitle="Hours Spent" width="1000px" height= "500px" />
+    <LineChart data={dummyData} xtitle="Date" ytitle="Hours Spent" width="80%" />
   )
 
 }
