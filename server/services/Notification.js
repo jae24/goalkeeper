@@ -1,5 +1,6 @@
 const Goal = require('../Schema/goalSchema');
 const path = require('path');
+const moment = require('moment');
 let secrets = {};
 
 if(process.env.NODE_ENV === 'production'){
@@ -25,7 +26,7 @@ const initialMessage = (goal) => {
   const messageBody = `Hi ${goal.creatorName.split(' ')[0]},
                        Thank you for setting a goal on Goaly!
 
-                       We will send you a daily reminder for ${goal.goalTitle} starting on ${goal.startDate}.
+                       We will send you a daily reminder for ${goal.goalTitle} starting on ${moment(goal.startDate).format("MMMM Do YYYY")}.
 
                        Commitment is the first step, now let's crush this goal together!
 

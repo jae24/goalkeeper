@@ -43,8 +43,8 @@ class GoalForm extends React.Component {
       dailyAction: this.state.dailyAction,
       noteToSelf: this.state.noteToSelf,
       createdOn: this.state.createdOn,
-      startDate: this.state.startDate._d,
-      endDate: this.state.endDate._d
+      startDate: this.state.startDate,
+      endDate: this.state.endDate
     }
 
     this.props.createGoal(newGoal);
@@ -104,31 +104,31 @@ class GoalForm extends React.Component {
       <form onSubmit={this.handleFormSubmission} id="goal-form">
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Name</label>
+            <label className="goal-page-header">Name</label>
             <input className="form-control" required={true} type="text" value={this.state.creatorName} onChange={this.handleCreatorNameChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Phone Number</label>
+            <label className="goal-page-header">Phone Number</label>
             <input className="form-control" required={true} type="text" value={this.state.creatorPhoneNumber} onChange={this.handleCreatorPhoneNumberChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>What's your Goal?</label>
-            <input className="form-control" required={true} type="text" value={this.state.name} onChange={this.handleGoalTitleChange}/>
+            <label className="goal-page-header">What's your Goal?</label>
+            <input className="form-control" required={true} type="text" value={this.state.name} maxlength="25" onChange={this.handleGoalTitleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Your Daily Commitment</label>
+            <label className="goal-page-header">Your Daily Commitment</label>
             <input className="form-control" required={true} type="text" value={this.state.dailyAction} onChange={this.handleDailyActionChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Note To Yourself</label>
+            <label className="goal-page-header">Note To Yourself</label>
             <input className="form-control" required={true} type="text" value={this.state.noteToSelf} onChange={this.handleNoteToSelfChange}/>
           </div>
         </div>

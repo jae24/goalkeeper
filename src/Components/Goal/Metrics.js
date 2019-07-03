@@ -9,6 +9,14 @@ export const GoalPieChart = (props) => {
   const numOfYes = props.goal.creatorResponses && props.goal.creatorResponses.yes;
   const numOfNo = props.goal.creatorResponses && props.goal.creatorResponses.no;
 
+  if(props.goal.creatorResponses.yes === 0 && props.goal.creatorResponses.no === 0){
+    return (
+      <div>
+        No data yet.
+      </div>
+    )
+  }
+
   return (
         <div>
             <h4 className="goal-page-header">Response Chart</h4>

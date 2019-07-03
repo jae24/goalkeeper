@@ -1,7 +1,8 @@
 import React from 'react';
-import { GoalPieChart } from './Metrics';
 import GoalForm from './GoalForm';
+import { GoalPieChart } from './Metrics';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { dateConverter, calculateDaysRemaining } from './date-helper';
 import "react-tabs/style/react-tabs.css";
 
 export default (props) => {
@@ -12,7 +13,7 @@ export default (props) => {
     <Tabs>
       <TabList>
         <Tab>
-          <h3 className="goal-page-header">Metrics</h3>
+          <h3 className="goal-page-header">Details</h3>
         </Tab>
         <Tab>
           <h3 className="goal-page-header">Edit Goal</h3>
@@ -21,10 +22,23 @@ export default (props) => {
 
       <TabPanel>
         <h1 className="goal-page-header">{props.goal.goalTitle}</h1>
-        <h3 className="goal-page-header">Start Date</h3>
-        <div className="goal-page-content">July 1st, 2019</div>
-        <h3 className="goal-page-header">Ending Date</h3>
-        <div className="goal-page-content">July 21st, 2019</div>
+        <div className="goal-page-content">
+        <span className="goal-page-header">Start Date</span>
+        <div className="endDate">{dateConverter(props.goal.startDate)}</div>
+        </div>
+        <div className="goal-page-content">
+          <span className="goal-page-header">End Date</span>
+          <div className="endDate">{dateConverter(props.goal.endDate)}</div>
+        </div>
+        <div className="goal-page-content">
+          <span className="goal-page-header">Days Remaining</span>
+          <div className="endDate">{calculateDaysRemaining(props.goal.endDate)} Days</div>
+        </div>
+
+
+
+
+
         <h3 className="goal-page-header">Data</h3>
         <div className="row">
           <div className="col-md-4">
