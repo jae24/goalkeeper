@@ -62,7 +62,11 @@ router.post('/goals', (req, res) => {
     noteToSelf: req.body.noteToSelf,
     createdOn: req.body.createdOn,
     startDate: req.body.startDate,
-    endDate: req.body.endDate
+    endDate: req.body.endDate,
+    creatorResponses: {
+      yes: 0,
+      no: 0
+    }
   })
 
   initialMessage(newGoal);

@@ -11,7 +11,11 @@ const goalSchema = {
   noteToSelf: String,
   createdOn: String,
   startDate: String,
-  endDate: String
+  endDate: String,
+  creatorResponses: {
+    yes: Number,
+    no: Number
+  }
 }
 
 var Goal = mongoose.model('Goal', goalSchema);
