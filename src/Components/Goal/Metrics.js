@@ -3,6 +3,26 @@ import PieChart from 'react-minimal-pie-chart';
 import { LineChart } from 'react-chartkick';
 import 'chart.js'
 
+export const GoalCompletionChart = (props) => {
+  return (
+    <PieChart
+      data={[{
+          value: 82,
+          color: '#FF6A5C'
+        }]}
+      totalValue={100}
+      lineWidth={20}
+      style={{width: '150px'}}
+      label
+      labelStyle={{
+        fontSize: '25px',
+        fontFamily: 'sans-serif'
+      }}
+      labelPosition={0}
+    />
+  )
+}
+
 export const GoalPieChart = (props) => {
   if(!props.goal){
     return null;
@@ -21,7 +41,6 @@ export const GoalPieChart = (props) => {
 
   return (
         <div>
-            <h4 className="goal-page-header">Response Chart</h4>
             <div className="pie-chart-legend">
               <div className="red-block"/>
               <div>Yes</div>
@@ -49,24 +68,44 @@ export const GoalPieChart = (props) => {
 
 export const GoalLineChart = (props) => {
 
-  const dummyData = {
-    "2019-06-13": 2,
-    "2019-06-14": 0,
-    "2019-06-15": 1,
-    "2019-06-16": 3,
-    "2019-06-17": 0,
-    "2019-06-18": 0,
-    "2019-06-19": 1,
-    "2019-06-20": 1,
-    "2019-06-21": 2,
-    "2019-06-22": 2
-  }
+  const dummyData = [{
+    name: "actual",
+    data: {
+              "2019-06-13": 2,
+              "2019-06-14": 0,
+              "2019-06-15": 1,
+              "2019-06-16": 3,
+              "2019-06-17": 0,
+              "2019-06-18": 0,
+              "2019-06-19": 1,
+              "2019-06-20": 1,
+              "2019-06-21": 2,
+              "2019-06-22": 2
+          }
+  },
+  {
+    name: "goal",
+    data: {
+              "2019-06-13": 1,
+              "2019-06-14": 1,
+              "2019-06-15": 1,
+              "2019-06-16": 1,
+              "2019-06-17": 1,
+              "2019-06-18": 1,
+              "2019-06-19": 1,
+              "2019-06-20": 1,
+              "2019-06-21": 1,
+              "2019-06-22": 1
+          }
+  }]
+
+
   if(!props.goal){
     return null;
   }
 
   return (
-    <LineChart data={dummyData} xtitle="Date" ytitle="Hours Spent" width="1000px" />
+    <LineChart data={dummyData} xtitle="Date" ytitle="Hours Spent" width="1000px" height= "500px" />
   )
 
 }

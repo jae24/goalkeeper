@@ -1,6 +1,6 @@
 import React from 'react';
 import GoalForm from './GoalForm';
-import { GoalPieChart, GoalLineChart } from './Metrics';
+import { GoalPieChart, GoalLineChart, GoalCompletionChart } from './Metrics';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { dateConverter, calculateDaysRemaining } from './date-helper';
 import "react-tabs/style/react-tabs.css";
@@ -22,19 +22,31 @@ export default (props) => {
 
       <TabPanel>
         <h1 className="goal-page-header">{props.goal.goalTitle}</h1>
-        <div className="goal-page-content">
-        <span className="goal-page-header">Start Date</span>
-        <div className="endDate">{dateConverter(props.goal.startDate)}</div>
+        <div className="row graph-row">
+          <div className="col-md-6">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="goal-page-content">
+                  <span className="goal-page-header">Start Date</span>
+                  <div className="endDate">{dateConverter(props.goal.startDate)}</div>
+                </div>
+                <div className="goal-page-content">
+                  <span className="goal-page-header">End Date</span>
+                  <div className="endDate">{dateConverter(props.goal.endDate)}</div>
+                </div>
+                <div className="goal-page-content">
+                  <span className="goal-page-header">Days Remaining</span>
+                  <div className="endDate">{calculateDaysRemaining(props.goal.endDate)} Days</div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <span className="goal-page-header">Percentage Completed</span>
+                <GoalCompletionChart />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="goal-page-content">
-          <span className="goal-page-header">End Date</span>
-          <div className="endDate">{dateConverter(props.goal.endDate)}</div>
-        </div>
-        <div className="goal-page-content">
-          <span className="goal-page-header">Days Remaining</span>
-          <div className="endDate">{calculateDaysRemaining(props.goal.endDate)} Days</div>
-        </div>
-        <h3 className="goal-page-header">Data</h3>
+        <h4 className="goal-page-header">Response Charts</h4>
         <div className="row graph-row">
           <div className="col-md-4">
             <h6>Q: Did you remember to {props.goal.goalTitle}?</h6>
