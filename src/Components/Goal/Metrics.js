@@ -1,17 +1,19 @@
 import React from 'react';
 import PieChart from 'react-minimal-pie-chart';
+import { LineChart } from 'react-chartkick';
+import 'chart.js'
 
 export const GoalPieChart = (props) => {
   if(!props.goal){
     return null;
   }
 
-  const numOfYes = props.goal.creatorResponses && props.goal.creatorResponses.yes;
-  const numOfNo = props.goal.creatorResponses && props.goal.creatorResponses.no;
+  const numOfYes = props.goal.creatorResponses && props.goal.creatorResponses.done.yes;
+  const numOfNo = props.goal.creatorResponses && props.goal.creatorResponses.done.no;
 
-  if(props.goal.creatorResponses.yes === 0 && props.goal.creatorResponses.no === 0){
+  if(props.goal.creatorResponses.done.yes === 0 && props.goal.creatorResponses.done.no === 0){
     return (
-      <div>
+      <div className="text-muted">
         No data yet.
       </div>
     )
@@ -42,6 +44,29 @@ export const GoalPieChart = (props) => {
               animate
             />
         </div>
+  )
+}
+
+export const GoalLineChart = (props) => {
+
+  const dummyData = {
+    "2019-06-13": 2,
+    "2019-06-14": 0,
+    "2019-06-15": 1,
+    "2019-06-16": 3,
+    "2019-06-17": 0,
+    "2019-06-18": 0,
+    "2019-06-19": 1,
+    "2019-06-20": 1,
+    "2019-06-21": 2,
+    "2019-06-22": 2
+  }
+  if(!props.goal){
+    return null;
+  }
+
+  return (
+    <LineChart data={dummyData} xtitle="Date" ytitle="Hours Spent" width="1000px" />
   )
 
 }

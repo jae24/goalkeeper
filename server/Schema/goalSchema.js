@@ -13,8 +13,13 @@ const goalSchema = {
   startDate: String,
   endDate: String,
   creatorResponses: {
-    yes: Number,
-    no: Number
+    done: {
+      yes: Number,
+      no: Number
+    },
+    timeSpent: [{
+    type: Number
+    }]
   }
 }
 

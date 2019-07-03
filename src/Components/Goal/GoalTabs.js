@@ -1,6 +1,6 @@
 import React from 'react';
 import GoalForm from './GoalForm';
-import { GoalPieChart } from './Metrics';
+import { GoalPieChart, GoalLineChart } from './Metrics';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { dateConverter, calculateDaysRemaining } from './date-helper';
 import "react-tabs/style/react-tabs.css";
@@ -34,21 +34,17 @@ export default (props) => {
           <span className="goal-page-header">Days Remaining</span>
           <div className="endDate">{calculateDaysRemaining(props.goal.endDate)} Days</div>
         </div>
-
-
-
-
-
         <h3 className="goal-page-header">Data</h3>
-        <div className="row">
+        <div className="row graph-row">
           <div className="col-md-4">
+            <h6>Q: Did you remember to {props.goal.goalTitle}?</h6>
             <GoalPieChart goal={props.goal}/>
           </div>
+        </div>
+        <div className="row graph-row">
           <div className="col-md-4">
-            <GoalPieChart goal={props.goal}/>
-          </div>
-          <div className="col-md-4">
-            <GoalPieChart goal={props.goal}/>
+            <h6>Q: How much time did you spend on {props.goal.goalTitle}?</h6>
+            <GoalLineChart goal={props.goal}/>
           </div>
         </div>
       </TabPanel>

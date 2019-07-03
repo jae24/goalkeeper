@@ -64,8 +64,11 @@ router.post('/goals', (req, res) => {
     startDate: req.body.startDate,
     endDate: req.body.endDate,
     creatorResponses: {
-      yes: 0,
-      no: 0
+      done: {
+        yes: 0,
+        no: 0
+      },
+      timeSpent: []
     }
   })
 

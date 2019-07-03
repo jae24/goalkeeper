@@ -117,7 +117,7 @@ class GoalForm extends React.Component {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label className="goal-page-header">What's your Goal?</label>
-            <input className="form-control" required={true} type="text" value={this.state.name} maxlength="25" onChange={this.handleGoalTitleChange}/>
+            <input className="form-control" required={true} type="text" value={this.state.name} maxlength="20" onChange={this.handleGoalTitleChange}/>
           </div>
         </div>
         <div className="form-row">
