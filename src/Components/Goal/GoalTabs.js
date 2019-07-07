@@ -52,10 +52,6 @@ export default (props) => {
             <h6>Q: Did you remember to {props.goal.goalTitle}?</h6>
             <GoalPieChart goal={props.goal}/>
           </div>
-          <div className="col-md-8">
-            <h6>Q: How much time did you spend on {props.goal.goalTitle}?</h6>
-            <GoalLineChart goal={props.goal}/>
-          </div>
         </div>
       </TabPanel>
       <TabPanel>

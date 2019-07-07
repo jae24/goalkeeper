@@ -26,11 +26,7 @@ const initialMessage = (goal) => {
   const messageBody = `Hi ${goal.creatorName.split(' ')[0]},
                        Thank you for setting a goal on Goaly!
 
-                       We will send you a daily reminder for ${goal.goalTitle} starting on ${moment(goal.startDate).format("MMMM Do YYYY")}.
-
-                       Commitment is the first step, now let's crush this goal together!
-
-                       "They always say time changes things, but you actually have to change them yourself" - Andy Warhol`
+                       We will send you a daily reminder for ${goal.goalTitle} starting on ${moment(goal.startDate).format("MMMM Do YYYY")}.`
 
   client.messages.create({
      body: messageBody.replace(/^ +| +$/gm, ""),
