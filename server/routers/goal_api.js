@@ -2,7 +2,6 @@ const express = require('express');
 const api_router = express.Router();
 const Goal = require('../schema/goalSchema');
 const { sendMessage, initialMessage } = require('../services/Notification');
-const checkIfPhoneNumberUnique = require('../validators/goalValidator');
 
 api_router.get('/testMessages', (req, res)=>{
   sendMessage()
@@ -28,15 +27,13 @@ api_router.post('/goals', (req, res) => {
     noCount: 0
   })
 
-  const numUnique = checkIfPhoneNumberUnique(newGoal.creatorPhoneNumber);
-
   Goal.findOne({ creatorPhoneNumber: newGoal.creatorPhoneNumber}, (err, goal) => {
     if(!goal){
       newGoal.save((err)=>{
       res.sendStatus(200);
       })
     } else {
-      res.status(400).send({error: "there is already a goal associated with this phone number"});
+      res.send({error: "there is already a goal associated with this phone number"});
     }
   })
 }

@@ -54,7 +54,7 @@ class GoalForm extends React.Component {
         let errorMessage = document.getElementById('error');
         errorMessage.classList.remove('error-invisible');
       }
-      if (res.status === 200){
+      else {
         window.location = '/goals';
       }
     })
