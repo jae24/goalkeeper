@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import uuid from 'uuid';
+import Error from './Error';
 import { connect } from 'react-redux';
 import { createGoal } from '../../Actions/Goal';
 import { withRouter } from 'react-router-dom';
@@ -51,9 +52,14 @@ class GoalForm extends React.Component {
 
     axios.post('http://localhost:3001/api/goals', {
       ...newGoal
+    }).then((res)=>{
+      if(res.data.error){
+        let errorMessage = document.getElementById('error');
+        errorMessage.classList.remove('error-invisible');
+      } else {
+        this.props.history.push('/goals');
+      }
     })
-
-    this.props.history.push('/goals');
   }
 
   handleNoteToSelfChange = (e) => {
@@ -117,7 +123,7 @@ class GoalForm extends React.Component {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label className="goal-page-header">What's your Goal?</label>
-            <input className="form-control" required={true} type="text" value={this.state.name} maxlength="20" onChange={this.handleGoalTitleChange}/>
+            <input className="form-control" required={true} type="text" value={this.state.name} maxLength="20" onChange={this.handleGoalTitleChange}/>
           </div>
         </div>
         <div className="form-row">
@@ -142,6 +148,7 @@ class GoalForm extends React.Component {
           focusedInput={this.state.focusedInput}
           onFocusChange={focusedInput => this.setState({ focusedInput })} />
       </div>
+      <Error/>
       <input className="submit-btn" style={ {cursor: 'pointer', padding: '10px' }} type="submit"/>
       </form>
       </div>

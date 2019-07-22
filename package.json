@@ -33,7 +33,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "concurrently \"cd ./server && nodemon server.js\" \"react-scripts start\"",
+    "start": "concurrently \"cd ./server && node server.js\" \"react-scripts start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",

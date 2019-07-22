@@ -4,14 +4,11 @@ import { connect } from 'react-redux'
 import { deleteGoalAsync } from '../../Actions/Goal'
 import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import '../../stylesheets/Goals.scss';
-
 
 const mapDispatchToProps = (dispatch, props) => ({
   deleteGoal: (payload) => dispatch(deleteGoalAsync(payload)),
 });
-
 
 class Goal extends React.Component {
 

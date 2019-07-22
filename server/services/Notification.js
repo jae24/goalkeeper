@@ -1,6 +1,7 @@
-const Goal = require('../Schema/goalSchema');
+const Goal = require('../schema/goalSchema');
 const path = require('path');
 const moment = require('moment');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 let secrets = {};
 
 if(process.env.NODE_ENV === 'production'){
@@ -21,17 +22,20 @@ console.log(accountSid);
 const client = require('twilio')(accountSid, authToken);
 
 const initialMessage = (goal) => {
-  console.log(goal);
   console.log(`+1${goal.creatorPhoneNumber}`)
   const messageBody = `Hi ${goal.creatorName.split(' ')[0]},
                        Thank you for setting a goal on Goaly!
 
                        We will send you a daily reminder for ${goal.goalTitle} starting on ${moment(goal.startDate).format("MMMM Do YYYY")}.`
 
-  client.messages.create({
+  client.messages
+  .create({
      body: messageBody.replace(/^ +| +$/gm, ""),
      from: '+12403485142',
      to: `+1${goal.creatorPhoneNumber}`
+   })
+   .then(message => {
+     console.log(goal._id);
    });
 }
 

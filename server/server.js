@@ -7,9 +7,6 @@ const app = express();
 const moment = require('moment');
 const path = require('path');
 
-// Exports from local JS files
-const { sendMessage, initialMessage } = require('./services/Notification');
-
 let secrets = {};
 
 if(process.env.NODE_ENV === 'production'){
@@ -35,7 +32,7 @@ app.use('/api', api_router);
 app.use(twil_router);
 
 // Import Schemas
-const Goal = require('./Schema/goalSchema');
+const Goal = require('./schema/goalSchema');
 
 // Add a listener for the server
 app.listen(LOCAL_PORT, () => {
