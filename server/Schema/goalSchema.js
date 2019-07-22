@@ -12,15 +12,8 @@ const goalSchema = {
   createdOn: String,
   startDate: String,
   endDate: String,
-  creatorResponses: {
-    done: {
-      yes: Number,
-      no: Number
-    },
-    timeSpent: [{
-    type: Number
-    }]
-  }
+  yesCount: Number,
+  noCount: Number
 }
 
 var Goal = mongoose.model('Goal', goalSchema);

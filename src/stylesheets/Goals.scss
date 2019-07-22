@@ -31,7 +31,7 @@
 }
 
 .goal-post {
-  height: 800px;
+  min-height: 800px;
 }
 
 .page-container {
@@ -50,7 +50,7 @@
 
 .goal-card {
   height: 325px;
-  margin: 25px;
+  margin-bottom: 50px;
   transition: 0.3s;
   -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
      -moz-animation: fadein 0.5s; /* Firefox < 16 */

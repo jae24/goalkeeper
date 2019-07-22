@@ -18,7 +18,7 @@ class Goal extends React.Component {
 
   render () {
     return (
-      <div className="col-md-3 container goal-card-wrapper">
+      <div className="col-lg-3 col-md-4 col-sm-6 container goal-card-wrapper">
         <div className="card goal-card">
           <button style={{border: 'none', backgroundColor: 'transparent', height: '100%', width: '50px', cursor: 'pointer'}}onClick={this.handleDeleteOnClick}>
             <FontAwesomeIcon icon={faTimes} />
@@ -26,11 +26,8 @@ class Goal extends React.Component {
           <h5 className="goal-card-title">{this.props.goalTitle}</h5>
           <div className="container card-details">
             <div className="row">
-              <div className="col-md-3">
-                <img style={{width: '50px', borderRadius: '100px'}} src="https://cdn-images-1.medium.com/max/1200/1*MccriYX-ciBniUzRKAUsAw.png" alt="profile-pic"/>
-              </div>
-              <div className="col-md-9">
-                <span style={{color: 'white', display: 'block', textAlign: 'right'}}>Created by {this.props.creatorName}</span>
+              <div className="col-md-12">
+                <span style={{color: 'white'}}>Created by {this.props.creatorName}</span>
                 <br/>
                 <Link style={{ display: 'block', textAlign: 'right'}}to={`goals/${this.props.goalid}`}>
                   Details <FontAwesomeIcon icon={faArrowRight} />

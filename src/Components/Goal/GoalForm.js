@@ -109,25 +109,25 @@ class GoalForm extends React.Component {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label className="goal-page-header">Name</label>
-            <input className="form-control" required={true} type="text" value={this.state.creatorName} onChange={this.handleCreatorNameChange}/>
+            <input className="form-control" required={false} type="text" value={this.state.creatorName} onChange={this.handleCreatorNameChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label className="goal-page-header">Phone Number</label>
-            <input className="form-control" required={true} type="text" value={this.state.creatorPhoneNumber} onChange={this.handleCreatorPhoneNumberChange}/>
+            <input className="form-control" required={false} type="text" value={this.state.creatorPhoneNumber} onChange={this.handleCreatorPhoneNumberChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label className="goal-page-header">What's your Goal?</label>
-            <input className="form-control" required={true} type="text" value={this.state.name} maxLength="20" onChange={this.handleGoalTitleChange}/>
+            <input className="form-control" required={false} type="text" value={this.state.name} maxLength="20" onChange={this.handleGoalTitleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label className="goal-page-header">Your Daily Commitment</label>
-            <input className="form-control" required={true} type="text" value={this.state.dailyAction} onChange={this.handleDailyActionChange}/>
+            <input className="form-control" required={false} type="text" value={this.state.dailyAction} onChange={this.handleDailyActionChange}/>
           </div>
         </div>
       <div className="form-group">
