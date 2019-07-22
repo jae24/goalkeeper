@@ -11,7 +11,6 @@ export const createGoal = (payload = {}) => ({
     goalTitle: payload.goalTitle,
     goalDescription: payload.goalDescription,
     dailyAction: payload.dailyAction,
-    noteToSelf: payload.noteToSelf,
     createdOn: payload.createdOn,
     startDate: payload.startDate,
     endDate: payload.endDate

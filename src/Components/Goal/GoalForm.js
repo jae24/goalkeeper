@@ -42,13 +42,10 @@ class GoalForm extends React.Component {
       goalTitle: this.state.goalTitle,
       goalDescription: this.state.goalDescription,
       dailyAction: this.state.dailyAction,
-      noteToSelf: this.state.noteToSelf,
       createdOn: this.state.createdOn,
       startDate: this.state.startDate,
       endDate: this.state.endDate
     }
-
-    this.props.createGoal(newGoal);
 
     axios.post('http://localhost:3001/api/goals', {
       ...newGoal
@@ -56,8 +53,9 @@ class GoalForm extends React.Component {
       if(res.data.error){
         let errorMessage = document.getElementById('error');
         errorMessage.classList.remove('error-invisible');
-      } else {
-        this.props.history.push('/goals');
+      }
+      if (res.status === 200){
+        window.location = '/goals';
       }
     })
   }
@@ -130,12 +128,6 @@ class GoalForm extends React.Component {
           <div className="form-group col-md-6">
             <label className="goal-page-header">Your Daily Commitment</label>
             <input className="form-control" required={true} type="text" value={this.state.dailyAction} onChange={this.handleDailyActionChange}/>
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label className="goal-page-header">Note To Yourself</label>
-            <input className="form-control" required={true} type="text" value={this.state.noteToSelf} onChange={this.handleNoteToSelfChange}/>
           </div>
         </div>
       <div className="form-group">

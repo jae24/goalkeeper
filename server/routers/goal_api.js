@@ -21,32 +21,24 @@ api_router.post('/goals', (req, res) => {
     goalTitle: req.body.goalTitle,
     goalDescription: req.body.goalDescription,
     dailyAction: req.body.dailyAction,
-    noteToSelf: req.body.noteToSelf,
     createdOn: req.body.createdOn,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
-    creatorResponses: {
-      done: {
-        yes: 0,
-        no: 0
-      },
-      timeSpent: []
-    }
+    yesCount: 0,
+    noCount: 0
   })
-
-  initialMessage(newGoal);
 
   const numUnique = checkIfPhoneNumberUnique(newGoal.creatorPhoneNumber);
 
-  if(numUnique){
-    newGoal.save((err)=>{
-      console.log("New goal successfully saved")
-    })
-  } else if (!numUnique){
-    console.log("already exists");
-    res.send({ error: "there is already a goal associated with this phone number", solution: "delete your current goal and create a new one"});
-  }
-
+  Goal.findOne({ creatorPhoneNumber: newGoal.creatorPhoneNumber}, (err, goal) => {
+    if(!goal){
+      newGoal.save((err)=>{
+      res.sendStatus(200);
+      })
+    } else {
+      res.status(400).send({error: "there is already a goal associated with this phone number"});
+    }
+  })
 }
 ).get('/goals', (req, res) => {
     Goal.find().sort({ createdOn: -1}).exec(function(err, goals){
