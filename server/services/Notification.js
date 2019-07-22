@@ -16,8 +16,6 @@ if(process.env.NODE_ENV === 'production'){
 const accountSid = secrets.accountSid;
 const authToken = secrets.authToken;
 
-console.log(accountSid);
-
 // Connect to twilio api
 const client = require('twilio')(accountSid, authToken);
 
