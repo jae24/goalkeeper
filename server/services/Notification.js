@@ -1,7 +1,7 @@
 const Goal = require('../schema/goalSchema');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const path = require('path');
 const moment = require('moment');
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
 let secrets = {};
 
 if(process.env.NODE_ENV === 'production'){
@@ -39,7 +39,6 @@ const initialMessage = (goal) => {
    });
 }
 
-// Regex from https://stackoverflow.com/questions/8927844/trimming-spaces-while-preserving-line-breaks
 const sendMessage = () => {
   Goal.find().sort({ createdOn: -1}).exec(function(err, goals){
     goals.forEach((goal)=>{

@@ -54,7 +54,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001",
   "devDependencies": {
     "manifest.json": "^1.2.0"
   }
