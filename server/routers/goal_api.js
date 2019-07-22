@@ -30,7 +30,13 @@ api_router.post('/goals', (req, res) => {
   Goal.findOne({ creatorPhoneNumber: newGoal.creatorPhoneNumber}, (err, goal) => {
     if(!goal){
       newGoal.save((err)=>{
-      res.sendStatus(200);
+      if(err){
+        throw err;
+      } else {
+        initialMessage(newGoal);
+        res.sendStatus(200);
+      }
+
       })
     } else {
       res.send({error: "there is already a goal associated with this phone number"});
@@ -46,7 +52,6 @@ api_router.post('/goals', (req, res) => {
   }
 ).get('/goals/:id', (req, res) => {
   Goal.findOne({_id: req.params.id}, function(err, goal){
-    console.log(goal);
     res.json({
       goal
     })
@@ -64,9 +69,8 @@ api_router.post('/goals', (req, res) => {
 ).delete('/goal/:id', (req, res)=>{
   Goal.deleteOne({_id: req.params.id}, function(err, goal){
     if(err){
-      console.log("Something went wrong ", req.params.id);
+      throw err;
     } else {
-      console.log("goal removed", req.params);
       res.json({
         status: 'success'
       })

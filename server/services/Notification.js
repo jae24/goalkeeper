@@ -22,7 +22,6 @@ console.log(accountSid);
 const client = require('twilio')(accountSid, authToken);
 
 const initialMessage = (goal) => {
-  console.log(`+1${goal.creatorPhoneNumber}`)
   const messageBody = `Hi ${goal.creatorName.split(' ')[0]},
                        Thank you for setting a goal on Goaly!
 
@@ -35,19 +34,16 @@ const initialMessage = (goal) => {
      to: `+1${goal.creatorPhoneNumber}`
    })
    .then(message => {
-     console.log(goal._id);
    });
 }
 
 const sendMessage = () => {
-  Goal.find().sort({ createdOn: -1}).exec(function(err, goals){
+  Goal.find().sort({ createdOn: -1 }).exec(function(err, goals){
     goals.forEach((goal)=>{
       const messageBody = `Hi ${goal.creatorName.split(' ')[0]},
                            This is your daily reminder from Goaly to ${goal.goalTitle}.
 
-                           Did you ${goal.dailyAction} today?
-
-                           Note from past you: ${goal.noteToSelf} :)
+                           Did you ${goal.goalTitle} today?
 
                            Reply yes or no.`
       client.messages.create({
