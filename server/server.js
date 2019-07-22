@@ -26,10 +26,8 @@ app.use(bodyParser.json());
 
 // Routers
 const api_router = require('./routers/goal_api');
-const twil_router = require('./routers/twilio');
 
 app.use('/api', api_router);
-app.use(twil_router);
 
 // Import Schemas
 const Goal = require('./schema/goalSchema');
