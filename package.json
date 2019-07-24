@@ -56,6 +56,5 @@
   },
   "devDependencies": {
     "manifest.json": "^1.2.0"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
