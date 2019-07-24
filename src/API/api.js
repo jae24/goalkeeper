@@ -1,1 +1,1 @@
-export const api_url = 'http://localhost:3001/api'
+export const api_url = 'https://goaly-twilio-server.herokuapp.com/api'

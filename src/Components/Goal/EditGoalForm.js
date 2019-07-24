@@ -9,14 +9,7 @@ import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 import '../../stylesheets/Goals.scss';
 
-// Using the react-redux library,
-// We give this component a dispatch function within its props.
-// This function takes a goal parameter and dispatches it to createGoal in actions/goal
-const mapDispatchToProps = (dispatch, props) => ({
-  createGoal: (payload) => dispatch(createGoal(payload)),
-});
-
-class GoalForm extends React.Component {
+class EditGoalForm extends React.Component {
   // CLASS PROPERTIES CAN NOW BE SET DIRECTLY WITHOUT A CONSTRUCTOR
   state = {
       _id: '',
@@ -29,6 +22,17 @@ class GoalForm extends React.Component {
       createdOn: Date.now(),
       startDate: null,
       endDate: null
+  }
+
+  .get('/goals/:id', (req, res) => {
+    Goal.findOne({_id: req.params.id}, function(err, goal){
+      res.json({
+        goal
+      })
+    })
+
+  componentDidMount(){
+    axios.get('')
   }
 
   // ARROW FUNCTIONS DIRECTLY BIND TO THE CLASS IT IS NAMED IN
@@ -47,7 +51,7 @@ class GoalForm extends React.Component {
       endDate: this.state.endDate
     }
 
-    axios.post('https://goaly-twilio-server.herokuapp.com/api/goals', {
+    axios.post('http://localhost:3001/api/goals', {
       ...newGoal
     }).then((res)=>{
       if(res.data.error){
