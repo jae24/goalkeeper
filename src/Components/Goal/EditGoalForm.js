@@ -44,7 +44,7 @@ class EditGoalForm extends React.Component {
       endDate: this.state.endDate
     }
 
-    axios.put(`http://localhost:5000/api/goal/${updateGoal._id}`, {
+    axios.put(`https://goaly-twilio-server.herokuapp.com/api/goal/${updateGoal._id}`, {
       ...updateGoal
     }).then((res)=>{
       if(res.data.error){
