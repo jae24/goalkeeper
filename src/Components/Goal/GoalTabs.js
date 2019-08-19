@@ -1,9 +1,9 @@
 import React from 'react';
-import GoalForm from './GoalForm';
 import { GoalPieChart, GoalLineChart } from './Metrics';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { dateConverter, calculateDaysRemaining } from './date-helper';
 import "react-tabs/style/react-tabs.css";
+import EditGoalForm from './EditGoalForm';
 
 export default (props) => {
   if(!props.goal){
@@ -51,7 +51,7 @@ export default (props) => {
         </div>
       </TabPanel>
       <TabPanel>
-        <GoalForm/>
+        <EditGoalForm goal={props.goal}/>
       </TabPanel>
     </Tabs>
   );

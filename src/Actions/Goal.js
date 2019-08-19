@@ -17,6 +17,21 @@ export const createGoal = (payload = {}) => ({
   }
 });
 
+export const editGoal = (payload = {}) => ({
+  type: 'EDIT_GOAL',
+  goal: {
+    _id: payload._id,
+    creatorName: payload.creatorName,
+    creatorPhoneNumber: payload.creatorPhoneNumber,
+    goalTitle: payload.goalTitle,
+    goalDescription: payload.goalDescription,
+    dailyAction: payload.dailyAction,
+    createdOn: payload.createdOn,
+    startDate: payload.startDate,
+    endDate: payload.endDate
+  }
+});
+
 export const populateGoals = (payload = []) => ({
   type: 'POPULATE_GOALS',
   goals: payload

@@ -1,5 +1,7 @@
 const goalReducer = (state = [], payload = []) => {
   switch(payload.type){
+    case 'EDIT_GOALS':
+      return state
     case 'DELETE_GOALS':
       return [
         ...payload.goals

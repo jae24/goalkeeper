@@ -3,44 +3,37 @@ import axios from 'axios';
 import uuid from 'uuid';
 import Error from './Error';
 import { connect } from 'react-redux';
-import { createGoal } from '../../Actions/Goal';
+import { editGoal } from '../../Actions/Goal';
 import { withRouter } from 'react-router-dom';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 import '../../stylesheets/Goals.scss';
 
+const mapDispatchToProps = (dispatch) => ({
+  editGoal: () => dispatch(editGoal()),
+});
+
 class EditGoalForm extends React.Component {
-  // CLASS PROPERTIES CAN NOW BE SET DIRECTLY WITHOUT A CONSTRUCTOR
+  // CLASS PROPERTIES CAN BE SET DIRECTLY WITHOUT A CONSTRUCTOR
   state = {
-      _id: '',
-      creatorName: '',
-      creatorPhoneNumber :'',
-      goalTitle: '',
-      goalDescription: '',
-      dailyAction: '',
-      noteToSelf: '',
+      _id: this.props.goal._id,
+      creatorName: this.props.goal.creatorName,
+      creatorPhoneNumber: this.props.goal.creatorPhoneNumber,
+      goalTitle: this.props.goal.goalTitle,
+      goalDescription: this.props.goal.goalDescription,
+      dailyAction:this.props.goal.dailyAction,
+      noteToSelf: this.props.goal.noteToSelf,
       createdOn: Date.now(),
       startDate: null,
       endDate: null
-  }
-
-  .get('/goals/:id', (req, res) => {
-    Goal.findOne({_id: req.params.id}, function(err, goal){
-      res.json({
-        goal
-      })
-    })
-
-  componentDidMount(){
-    axios.get('')
   }
 
   // ARROW FUNCTIONS DIRECTLY BIND TO THE CLASS IT IS NAMED IN
   handleFormSubmission = (e) => {
     e.preventDefault();
 
-    const newGoal = {
-      _id: uuid(),
+    const updateGoal = {
+      _id: this.state._id,
       creatorName: this.state.creatorName,
       creatorPhoneNumber: this.state.creatorPhoneNumber,
       goalTitle: this.state.goalTitle,
@@ -51,15 +44,13 @@ class EditGoalForm extends React.Component {
       endDate: this.state.endDate
     }
 
-    axios.post('http://localhost:3001/api/goals', {
-      ...newGoal
+    axios.put(`http://localhost:5000/api/goal/${updateGoal._id}`, {
+      ...updateGoal
     }).then((res)=>{
       if(res.data.error){
-        let errorMessage = document.getElementById('error');
-        errorMessage.classList.remove('error-invisible');
       }
       else {
-        window.location = '/goals';
+        window.location = `/goals/${updateGoal._id}`;
       }
     })
   }
@@ -112,25 +103,25 @@ class EditGoalForm extends React.Component {
       <form onSubmit={this.handleFormSubmission} id="goal-form">
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label className="goal-page-header">Name</label>
+            <label className="goal-page-header">Edit Name</label>
             <input className="form-control" required={false} type="text" value={this.state.creatorName} onChange={this.handleCreatorNameChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label className="goal-page-header">Phone Number</label>
+            <label className="goal-page-header">Edit Phone Number</label>
             <input className="form-control" required={false} type="text" value={this.state.creatorPhoneNumber} onChange={this.handleCreatorPhoneNumberChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label className="goal-page-header">What's your Goal?</label>
-            <input className="form-control" required={false} type="text" value={this.state.name} maxLength="20" onChange={this.handleGoalTitleChange}/>
+            <label className="goal-page-header">Edit Goal Title</label>
+            <input className="form-control" required={false} type="text" value={this.state.goalTitle} maxLength="20" onChange={this.handleGoalTitleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label className="goal-page-header">Your Daily Commitment</label>
+            <label className="goal-page-header">Edit Your Daily Commitment</label>
             <input className="form-control" required={false} type="text" value={this.state.dailyAction} onChange={this.handleDailyActionChange}/>
           </div>
         </div>
@@ -152,4 +143,4 @@ class EditGoalForm extends React.Component {
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(GoalForm));
+export default withRouter(connect(null, mapDispatchToProps)(EditGoalForm));
